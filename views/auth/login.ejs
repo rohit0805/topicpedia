@@ -1,0 +1,15 @@
+<%-include('../partials/header')%> 
+<%-include('../partials/messages')%>
+
+<h2 class="text-center">Login Here</h2>
+<form action="/login" method="post" class="form-wrap">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" required />
+
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" required />
+
+  <button>Submit</button>
+  <p>Not register, <a href="/register">Click here</a></p>
+</form>
+<%-include('../partials/footer')%>

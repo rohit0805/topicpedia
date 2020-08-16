@@ -1,0 +1,29 @@
+<%-include('../partials/header')%>
+
+<div class="top">
+  <h1 class="text-center uppercase"><%=foundTopic.name%> Articles</h1>
+  <%if(CurrentUser && Admin && Admin==='true'){%>
+  <a class="btn" href="/topics/<%=foundTopic._id%>/articles/new"
+    >Add new Article</a>
+  <%}%>
+</div>
+
+<ul class="card-list">
+  <%foundTopic.articles.forEach((article)=>{%>
+  <a href="/topics/<%=foundTopic._id%>/articles/<%=article._id%>/show">
+    <li class="card">
+      <img
+        src="
+          <%=article.image%>"
+        alt="image"
+      />
+      <h5><%=article.title%></h5>
+      <p class="text-prem">
+        <%if(article.featured==='true'){%> Premium <%}else{%> Free <%}%>
+      </p>
+    </li>
+  </a>
+  <%})%>
+</ul>
+
+<%-include('../partials/footer')%>

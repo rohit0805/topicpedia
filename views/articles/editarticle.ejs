@@ -1,0 +1,47 @@
+<%-include('../partials/header')%>
+<h2 class="text-center">Article Form</h2>
+<form
+  action="/topics/<%=id%>/articles/<%=article._id%>?_method=PUT"
+  method="POST"
+  class="form-wrap"
+>
+  <label for="title">Title</label>
+  <input
+    type="text"
+    name="title"
+    id="title"
+    value="<%=article.title%>"
+    required
+  />
+
+  <label for="image">ImageUrl</label>
+  <input
+    type="text"
+    name="image"
+    id="image"
+    value="<%=article.image%>"
+    required
+  />
+
+  <label for="content">Content</label>
+  <textarea name="content" id="content" cols="30" rows="10">
+ <%=article.content%></textarea
+  >
+
+  <label for="featured">Featured</label>
+  <%if(article.featured==='true'){%>
+  <select name="featured" id="featured">
+    <option selected value="true">Premium</option>
+    <option value="false">Free</option>
+  </select>
+  <%}else{%>
+  <select name="featured" id="featured">
+    <option value="true">Premium</option>
+    <option selected value="false">Free</option>
+  </select>
+  <%}%>
+
+  <button>Submit</button>
+  <a href="/topics/<%=id%>/articles/<%=article._id%>/show">Go Back</a>
+</form>
+<%-include('../partials/footer')%>

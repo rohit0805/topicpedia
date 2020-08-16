@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <link rel="icon" href="/assets/icon.png" />
+    <title>TopicPedia || Read What you Like!</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-logo">
+        <a href="/"> <img src="/assets/logolight.png" alt="" /></a>
+      </div>
+      <div class="nav-tabs">
+        <ul>
+          <li><a href="/topics">Topics</a></li>
+        </ul>
+      </div>
+      <div class="nav-log">
+        <ul>
+          <% if(CurrentUser && CurrentUser.length!=0) { %>
+          <li>
+            <form action="/logout?_method=DELETE" method="POSt">
+              <div class="logout-panel">
+                <p>hello <%=CurrentUser%></p>
+                <button class="hide-border">LogOut</button>
+              </div>
+            </form>
+          </li>
+          <%}else{%>
+          <li><a href="/register">SignUp</a></li>
+          <li><a href="/login">Login</a></li>
+          <%}%>
+        </ul>
+      </div>
+    </nav>
+  </body>
+</html>

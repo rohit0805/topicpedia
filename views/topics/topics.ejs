@@ -1,0 +1,32 @@
+<%-include('../partials/header')%>
+<section id="topics">
+  <div class="top">
+    <h1>Welcome to TopicPedia</h1>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem debitis
+      corporis nemo maxime, officiis iste labore saepe fugiat recusandae,
+      voluptatem odit temporibus, laudantium quam quasi? Delectus quidem
+      blanditiis pariatur!
+    </p>
+    <%if(CurrentUser && Admin && Admin==='true'){%>
+      <a class="btn" href="/topics/new">Add new Topic</a>
+    <%}%>    
+  </div>
+
+  <ul class="card-list">
+    <%topics.forEach((topic)=>{%>
+    <a href="/topics/<%=topic._id%>/articles">
+      <li class="card">
+        <img
+          src="
+            <%=topic.image%>"
+          alt="image"
+        />
+        <h5><%=topic.name%></h5>
+      </li>
+    </a>
+    <%})%>
+  </ul>
+  
+</section>
+<%-include('../partials/footer')%>

@@ -1,0 +1,13 @@
+<%-include('../partials/header')%>
+<section id="article">
+  <h1><%=article.title%></h1>
+  <img src="<%=article.image%>" alt="image">
+  <p><%=article.content%></p>
+
+  <%if(CurrentUser && Admin && Admin==='true'){%>
+    <a class="btn btn-dark" href="/topics/<%=topicId%>/articles/<%=article._id%>/edit">Edit The Article</a>
+  <%}%>
+  
+  <a href="/topics/<%=topicId%>/articles">Go Back</a>
+</section>
+<%-include('../partials/footer')%>
